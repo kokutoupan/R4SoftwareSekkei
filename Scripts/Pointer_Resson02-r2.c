@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <math.h>
 
+void foo(void);
+
 int main(void)
 {
     int a;
 
     printf("&a  = %u byte\n", sizeof(&a));
     printf("%.0f byte\n", pow(16, sizeof(&a) * 2));
+
+    return 0;
 }
 
 /*
