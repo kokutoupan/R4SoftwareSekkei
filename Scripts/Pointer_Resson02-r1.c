@@ -2,6 +2,8 @@
 
 int main(void)
 {
+    int a;
+    
     printf("&a = %p byte\n",&a);
     return 0;
 }

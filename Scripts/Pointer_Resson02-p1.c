@@ -50,3 +50,16 @@ int main(void)
 &g = 0x7ffd25ac5900 , g = 10
 &h = 0x7ffd25ac5904 , h = 20
 */
+
+
+//コンパイラー clang version 13.0.1
+/*
+&a = 0x564b895b2044 , a = 0
+&b = 0x564b895b2048 , b = 0
+&c = 0x564b895b2038 , c = 100
+&d = 0x564b895b203c , d = 200
+&e = 0x7ffe010cbc94 , e = 0
+&f = 0x7ffe010cbc90 , f = 13
+&g = 0x7ffe010cbc8c , g = 10
+&h = 0x7ffe010cbc88 , h = 20
+*/
