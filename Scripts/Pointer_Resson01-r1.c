@@ -76,8 +76,41 @@ void rei5(void)
 }
 
 /*
+例１
 a : 1 byte
 b : 4 byte
 c : 4 byte
 d : 8 byte
+
+例２
+char          1 byte
+int           4 byte
+float         4 byte
+double        8 byte
+short int     2 byte
+long int      8 byte
+unsigned int  4 byte
+long double   16 byte
+long long int 8 byte
+
+例３
+a: 10 byte
+b: 20 byte
+c: 64 byte
+a[0]: 1 byte
+b[2]: 4 byte
+c[5]: 8 byte
+
+例4
+d:       48 byte
+d[1]:    16 byte
+d[1][3]: 4 byte
+
+例5
+100        4 byte
+100L       8 byte
+3.14       8 byte
+3.14f      4 byte
+'A'        4 byte
+"abcdef"   7 byte
 */
