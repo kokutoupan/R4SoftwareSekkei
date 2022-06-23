@@ -50,6 +50,16 @@ int main(void)
 &g = 0x7ffd25ac5900 , g = 10
 &h = 0x7ffd25ac5904 , h = 20
 */
+/* -Ofast (gccでの最適化を有効に使用した際)
+&a = 0x5648e287d048 , a = 0
+&b = 0x5648e287d044 , b = 0
+&c = 0x5648e287d03c , c = 100
+&d = 0x5648e287d038 , d = 200
+&e = 0x7ffc9de6dcb8 , e = 1254846768
+&f = 0x7ffc9de6dcbc , f = 32758
+&g = 0x7ffc9de6dcc0 , g = 10
+&h = 0x7ffc9de6dcc4 , h = 20
+*/
 
 
 //コンパイラー clang version 13.0.1
