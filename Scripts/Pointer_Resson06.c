@@ -8,10 +8,14 @@ int main(void) {
     printf("j = ");
     scanf("%d", &j);
 
-    printf("&a[%2d] = %p\n", i, a + i);
-    printf("&a[%2d] = %p\n", j, a + j);
+    int *ip=a+i,*jp=a+j;
+    printf("&a[%2d] = %p\n", i, ip);
+    printf("&a[%2d] = %p\n", j, jp);
 
-    printf("%ld byteの差があります\n", ((a + j) - (a + i)) * sizeof(int)) ;
+
+
+    printf("%d byteの差があります\n",(int)((jp-ip)*sizeof(int)));
+
     return 0;
 }
 
@@ -26,5 +30,5 @@ i = 24
 j = 64
 &a[24] = 0x7ffee3fd6150
 &a[64] = 0x7ffee3fd61f0
-160 byteの差があります
+-160 byteの差があります
 */
