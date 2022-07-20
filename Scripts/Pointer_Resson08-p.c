@@ -32,6 +32,7 @@ int main(void)
 
     }
     {//練習12
+        printf("\n練習12\n");
         int n ,*ptr =NULL;
 
         printf("n=");
@@ -64,13 +65,15 @@ int main(void)
 練習10
 kanazawa
 awazanak
+
+練習12
 n=4
 1
 10
 100
 1000
-[0x56235f000ac0] 01 00 00 00
-[0x56235f000ac4] 0a 00 00 00
-[0x56235f000ac8] 64 00 00 00
-[0x56235f000acc] e8 03 00 00
+[0x556ddf320ac0] 01 00 00 00
+[0x556ddf320ac4] 0a 00 00 00
+[0x556ddf320ac8] 64 00 00 00
+[0x556ddf320acc] e8 03 00 00
 */
