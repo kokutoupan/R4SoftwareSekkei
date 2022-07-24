@@ -5,7 +5,7 @@
 int main(void) 
 {
     {//練習11
-        printf("練習10\n");
+        printf("練習11\n");
         char s[100];
         scanf("%s",s);
 
@@ -62,7 +62,7 @@ int main(void)
 }
 
 /*
-練習10
+練習11
 kanazawa
 awazanak
 
