@@ -13,7 +13,7 @@ struct node
 struct node *add(char *, struct node *);
 void show(struct node *);
 void free_list(struct node *);
-void insert(int n, char *data, struct node **head);
+void insert(int n, char *data, struct node *p);
 
 int main(void)
 {
@@ -37,15 +37,16 @@ int main(void)
     //while(getchar()!= 1);
     //fscanf(stdin,"%s",data);
     //while (c != '\n') c = getchar();
-    stdin->_flags = stdinFlag; //これでctrl-Dを押す前のstdinのフラグを上書きする
+    stdin->_flags = stdinFlag; //これでctrl-Dのあとにstdinのフラグを上書きする
     //printf("%x",stdin->_flags);
 
     printf("挿入するデータ: ");
     scanf("%s", data);
       
+    printf("%s",data);
     printf("何番目の後に: ");
     scanf("%d", &n);
-    insert(n, data, &head); /* ノードの挿入*/
+    insert(n, data, head); /* ノードの挿入*/
     show(head);            /* 挿入後のノードの表示*/
     free_list(head);
 
@@ -86,19 +87,13 @@ void free_list(struct node *p)
 }
 
 /* リストにノードを挿入する関数*/
-void insert(int n, char *data, struct node **head)
+void insert(int n, char *data, struct node *p)
 {
-    struct node* p = *head;
     int i;
     struct node *x; /* 挿入するノードの準備*/
     x = malloc(sizeof(struct node));
     strcpy(x->name, data); 
     
-    if(n == 0){
-      *head = x;
-      x->next = p;
-      return;
-    }
     /* 挿入する位置の手前までノードをたどる*/
     for (i = 0; i < n - 1; i++)
         p = p->next; /* ノードの付け替え*/
