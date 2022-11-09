@@ -15,6 +15,8 @@ void show(struct node *);
 void free_list(struct node *);
 void insert(int n, char *data, struct node **head);
 
+void insert3(int n, char *data, struct node **pHead);
+
 int main(void)
 {
     char data[20];
@@ -45,7 +47,7 @@ int main(void)
       
     printf("何番目の後に: ");
     scanf("%d", &n);
-    insert(n, data, &head); /* ノードの挿入*/
+    insert3(n, data, &head); /* ノードの挿入*/
     show(head);            /* 挿入後のノードの表示*/
     free_list(head);
 
@@ -104,4 +106,14 @@ void insert(int n, char *data, struct node **head)
         p = p->next; /* ノードの付け替え*/
     x->next = p->next;
     p->next = x;
+}
+
+void insert3(int n, char *data, struct node **pHead)
+{
+    struct node* p = *pHead;
+    for(int i=0;i < n;i++){
+      pHead = &(*pHead)->next;
+    }
+    *pHead = add(data,*pHead);
+
 }
