@@ -13,7 +13,7 @@ struct node
 
 struct node *add(char *, struct node *);
 void show(struct node *);
-void free_list(struct node *);
+void *free_list(struct node *);
 
 void insert(int n, char *data, struct node **head);
 void insert3(int n, char *data, struct node **pHead);
@@ -61,11 +61,11 @@ int main(void)
     // show(head);
 
     printf("どのデータを削除しますか\n");
-    scanf("%s",data);
-    delete_name(data,&head);
+    scanf("%s", data);
+    delete_name(data, &head);
     show(head);
 
-    free_list(head);
+    head = free_list(head);
 
     return 0;
 }
@@ -92,7 +92,7 @@ void show(struct node *p)
 }
 
 /* リストを全開放 */
-void free_list(struct node *p)
+void *free_list(struct node *p)
 {
     // printf("afea");
     while (p != NULL)
@@ -101,6 +101,7 @@ void free_list(struct node *p)
         p = p->next;
         free(tmp);
     }
+    return NULL;
 }
 
 /* リストにノードを挿入する関数*/
