@@ -1,4 +1,4 @@
-//練習29
+//練習28
 
 #include <stdio.h>
 #include <string.h>/* strcpyに必要*/
@@ -25,49 +25,12 @@ int main(void)
 {
   char data[20];
   struct node *head = NULL;
-  int n;
-  char c;
-  int stdinFlag = stdin->_flags;
 
-  // printf("%x\n",stdin->_flags);
   /* 先頭ポインタをNULLに*/
   while (scanf("%s", data) != EOF)
   {
-    stdinFlag = stdin->_flags;
     head = add(data, head);
-    // printf("%x\n",stdin->_flags);
   }
-  show(head);
-  // fflush(stdin);
-  // getchar();
-  // while(getchar()!= 1);
-  // fscanf(stdin,"%s",data);
-  // while (c != '\n') c = getchar();
-  stdin->_flags = stdinFlag; //これでctrl-Dを押す前のstdinのフラグを上書きする
-  // printf("%x",stdin->_flags);
-
-  //<練習29>
-  printf("\n練習29\n");
-  printf("挿入するデータ: ");
-  scanf("%s", data);
-  printf("何番目の後に: ");
-  scanf("%d", &n);
-  insert3(n, data, &head); /* ノードの挿入*/
-  show(head);              /* 挿入後のノードの表示*/
-
-  //<練習30>
-  /* 要素の削除*/
-  printf("\n練習30\n");
-  printf("何番目を削除しますか\n");
-  scanf("%d", &n);
-  delete (n, &head);
-  show(head);
-
-  //<練習31>
-  printf("\n練習31\n");
-  printf("どのデータを削除しますか\n");
-  scanf("%s", data);
-  delete_name(data, &head);
   show(head);
 
   head = free_list(head);
@@ -170,27 +133,11 @@ void delete_name(char *str, struct node **pHead)
 
 }
 
-
 /*
 aaa
 bbb
 ccc
 ddd
 ddd -> ccc -> bbb -> aaa -> NULL
-
-練習29
-挿入するデータ: eee
-何番目の後に: 0
-eee -> ddd -> ccc -> bbb -> aaa -> NULL
-
-練習30
-何番目を削除しますか
-2
-eee -> ccc -> bbb -> aaa -> NULL
-
-練習31
-どのデータを削除しますか
-aaa
-eee -> ccc -> bbb -> NULL
 NULL
 */
