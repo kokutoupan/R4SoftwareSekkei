@@ -23,6 +23,7 @@ int main(void)
         printf("3) 指定のノードを削除\n");
         printf("4) 全ノードの削除\n");
         printf("5) 指定のデータのノードを削除\n");
+        printf("6) データのソート\n");
         printf("\n何番の処理を行いますか？：");
         int select;
         scanf("%d",&select);
@@ -57,6 +58,9 @@ int main(void)
                 scanf("%s",data);
                 delete_name(data,&head);
                 break;
+            case 6:
+                sort(&head,cmpNode);
+                break;
             default:
                 select = 0;
                 printf("0-5の番号で答えてください\n");
@@ -75,3 +79,31 @@ int main(void)
     return 0;
 }
 
+/* ソートの実装 実行結果は一部抜粋
+0) 終了
+1) 先頭にノードを追加
+2) 任意の位置にノードを挿入
+3) 指定のノードを削除
+4) 全ノードの削除
+5) 指定のデータのノードを削除
+6) データのソート
+
+何番の処理を行いますか？：1
+挿入するデータを入力してください:
+mazie
+[0x4060c0] malloc
+
+[head] -> mazie -> hoge -> bri -> 1fff -> [NULL]
+
+0) 終了
+1) 先頭にノードを追加
+2) 任意の位置にノードを挿入
+3) 指定のノードを削除
+4) 全ノードの削除
+5) 指定のデータのノードを削除
+6) データのソート
+
+何番の処理を行いますか？：6
+
+[head] -> 1fff -> bri -> hoge -> mazie -> [NULL]
+*/

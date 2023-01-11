@@ -24,6 +24,8 @@ void delete1(int n, struct node **pHead);
 void delete2(int n, struct node **pHead);
 void delete_name(char *s, struct node **pHead);
 
+
+int countNode(struct node* p);
 int cmpNode(const void *n1,const void *n2);
 void sort(struct node **pHead,int (* cmpFunc)(const void * n1, const void * n2));
 

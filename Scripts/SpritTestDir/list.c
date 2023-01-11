@@ -179,10 +179,45 @@ void insert3(int n, char *data, struct node **pHead)
     *pHead = add(data, *pHead);
 }
 
+int countNode(struct node* p){
+  int ctn = 0;
+  while(p != NULL){
+    p = p->next;
+    ctn++;
+  }
+
+  return ctn;
+}
 
 int cmpNode(const void *n1,const void *n2){
-    return strcmp((const struct node*)n1->name,(const struct node*)n2->name);
-}
-void sort(struct node **pHead,int (* cmpFunc)(const void * n1, const void * n2)){
+    //printf("cmp\n");
+    //printf("%s %s\n",(*(const struct node**)n1)->name,(*(const struct node**)n2)->name);
 
+    return strcmp((*(const struct node**)n1)->name,(*(const struct node**)n2)->name);
+}
+
+void sort(struct node **pHead,int (* cmpFunc)(const void * n1, const void * n2)){
+  int numOfNode = countNode(*pHead);
+  struct node** nodes = (struct node**)malloc(sizeof(struct node*) * (numOfNode+1));
+
+  struct node* np = *pHead;
+  for(int i= 0; i< numOfNode; ++i){
+    nodes[i] = np;
+    np = np->next;
+    //printf("%s\n",nodes[i]->name);
+  }
+
+
+  qsort(nodes,numOfNode,sizeof(struct node*),cmpFunc);
+
+  nodes[numOfNode] = NULL;
+  for(int i = 0 ;i < numOfNode; ++i){
+    //printf("%s\n",nodes[i]->name);
+
+    *pHead = nodes[i];
+
+    (*pHead)->next = nodes[i+1];
+    pHead = &((*pHead)->next);
+  }
+  free(nodes);
 }
