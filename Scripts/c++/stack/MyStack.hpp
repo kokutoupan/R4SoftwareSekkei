@@ -11,7 +11,7 @@ struct POINT
     POINT(int _x, int _y) : x(_x), y(_y) {}
 };
 
-template <class Char> // 出力ストリーム
+template <class Char> // POINTの出力演算子のオーバーロード
 inline std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const POINT& v)
 {
     return os << Char('(') << v.x << Char(',') << v.y << Char(')');
@@ -26,9 +26,8 @@ class MyStack
     T *capacity_last;
 
     int capacity_size;
-
-public:
     int size;
+public:
     MyStack();
     ~MyStack();
 
@@ -39,6 +38,11 @@ public:
     bool IsFull() const;
     void Show() const;
 };
+
+
+//-----------------------------------------------------------------------------
+//実装
+//-----------------------------------------------------------------------------
 
 template <class T>
 bool MyStack<T>::Pop(T& out)
