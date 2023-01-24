@@ -4,7 +4,7 @@
 #include "MyStack.hpp"
 
 int main(){
-    MyStack stack;
+    MyStack<POINT> stack;
     bool ret;
     bool loop = true;
     int res;
