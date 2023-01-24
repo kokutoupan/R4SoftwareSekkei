@@ -3,12 +3,6 @@
 #include <iostream>
 #include <algorithm>
 
-template <class Char> // 出力ストリーム
-std::basic_ostream<Char>& operator <<(std::basic_ostream<Char>& os, const POINT& v)
-{
-    return os << Char('(') << v.x << Char(',') << v.y << Char(')');
-}
-
 
 MyStack::MyStack()
 {
@@ -24,18 +18,18 @@ MyStack::~MyStack()
     delete[] data;
 }
 
-POINT MyStack::Pop()
+bool MyStack::Pop(POINT& out)
 {
     if(this->IsEmpty()){
-        //
+        return false;
     }
     head--;
     size--;
-    std::cout << "(" << head->x << ',' << head->y << ")\n";
-    return *head;
+    out = *head;
+    return true;
 }
 
-void MyStack::Push(POINT &_pos)
+bool MyStack::Push(const POINT &_pos)
 {
     //std::cout << "aaa" << std::endl;
     if (this->IsFull())
@@ -57,23 +51,24 @@ void MyStack::Push(POINT &_pos)
     *head = _pos;
     head++;
     size++;
-    return;
+    return true;
 }
 
-bool MyStack::IsEmpty(){
-    return size ? 1:0;
+bool MyStack::IsEmpty() const{
+    return size ? false:true;
 }
-bool MyStack::IsFull(){
+bool MyStack::IsFull() const{
     return capacity_last == head;
 }
 
-void MyStack::Show(){
+void MyStack::Show() const{
     POINT* i = head -1;
+    std::cout << "\n";
     while (i >= data)
     {
-        std::cout << *i;
+        std::cout << "|"<< *i << "|\n";
         i--;
     }
-    std::cout << "\n";
+    std::cout << "-------------------------------\n";
     
 }
