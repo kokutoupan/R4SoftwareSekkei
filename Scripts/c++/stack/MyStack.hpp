@@ -63,11 +63,11 @@ bool MyStack<T>::Push(const T &_pos)
     //std::cout << "aaa" << std::endl;
     if (this->IsFull())
     {
-        POINT *tmp = data;
+        T *tmp = data;
         capacity_size *= 2;
 
         std::cout << "再確保 size:" << capacity_size << "\n";
-        data = new POINT[capacity_size];
+        data = new T[capacity_size];
         std::copy(tmp, head, data);
 
         head = data + size;
@@ -88,7 +88,7 @@ MyStack<T>::MyStack()
 {
     size = 0;
     capacity_size = 1;
-    data = new POINT[capacity_size];
+    data = new T[capacity_size];
     head = data;
     capacity_last = data + capacity_size;
 }
@@ -111,7 +111,7 @@ bool MyStack<T>::IsFull() const{
 
 template<class T>
 void MyStack<T>::Show() const{
-    POINT* i = head -1;
+    T* i = head -1;
     std::cout << "\n";
     while (i >= data)
     {
