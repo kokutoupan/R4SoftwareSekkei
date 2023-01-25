@@ -29,6 +29,7 @@ class MyStack
     int size;
 public:
     MyStack();
+    MyStack(const unsigned int n);
     ~MyStack();
 
     bool Pop(T& out);
@@ -43,6 +44,31 @@ public:
 //-----------------------------------------------------------------------------
 //実装
 //-----------------------------------------------------------------------------
+
+template<class T>
+MyStack<T>::MyStack()
+{
+    size = 0;
+    capacity_size = 1;
+    data = new T[capacity_size];
+    head = data;
+    capacity_last = data + capacity_size;
+}
+
+template<class T>
+MyStack<T>::MyStack(const unsigned int n)
+{
+    size = 0;
+    capacity_size = n;
+    data = new T[capacity_size];
+    head = data;
+    capacity_last = data + capacity_size;
+}
+template<class T>
+MyStack<T>::~MyStack()
+{
+    delete[] data;
+}
 
 template <class T>
 bool MyStack<T>::Pop(T& out)
@@ -82,23 +108,6 @@ bool MyStack<T>::Push(const T &_pos)
     size++;
     return true;
 }
-
-template<class T>
-MyStack<T>::MyStack()
-{
-    size = 0;
-    capacity_size = 1;
-    data = new T[capacity_size];
-    head = data;
-    capacity_last = data + capacity_size;
-}
-
-template<class T>
-MyStack<T>::~MyStack()
-{
-    delete[] data;
-}
-
 
 template<class T>
 bool MyStack<T>::IsEmpty() const{
